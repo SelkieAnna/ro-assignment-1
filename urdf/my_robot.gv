@@ -1,0 +1,32 @@
+digraph G {
+node [shape=box];
+"base" [label="base"];
+"back" [label="back"];
+"upper" [label="upper"];
+"left" [label="left"];
+"link_1" [label="link_1"];
+"hidden_link" [label="hidden_link"];
+"link_2" [label="link_2"];
+"left_gripper" [label="left_gripper"];
+"right_gripper" [label="right_gripper"];
+"right" [label="right"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base" -> "base_to_back" [label="xyz: -2.5 0 0 \nrpy: 0 -0 0"]
+"base_to_back" -> "back"
+"back" -> "back_to_upper" [label="xyz: 0 0 10 \nrpy: 0 -0 0"]
+"back_to_upper" -> "upper"
+"base" -> "base_to_left" [label="xyz: 0 -2.5 0 \nrpy: 0 -0 0"]
+"base_to_left" -> "left"
+"left" -> "left_to_link_1" [label="xyz: 0 0 5 \nrpy: 0 -0 0"]
+"left_to_link_1" -> "link_1"
+"link_1" -> "link_1_to_hidden_link" [label="xyz: 0 2.5 0 \nrpy: 0 -0 0"]
+"link_1_to_hidden_link" -> "hidden_link"
+"hidden_link" -> "hidden_link_to_link_2" [label="xyz: 0.5 0 0 \nrpy: 0 -0 0"]
+"hidden_link_to_link_2" -> "link_2"
+"link_2" -> "link_2_to_left_gripper" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"link_2_to_left_gripper" -> "left_gripper"
+"link_2" -> "link_2_to_right_gripper" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"link_2_to_right_gripper" -> "right_gripper"
+"base" -> "base_to_right" [label="xyz: 0 2.5 0 \nrpy: 0 -0 0"]
+"base_to_right" -> "right"
+}
